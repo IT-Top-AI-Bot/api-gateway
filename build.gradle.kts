@@ -24,6 +24,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webflux")
     implementation("org.springframework.cloud:spring-cloud-starter-kubernetes-client-all")
+    runtimeOnly("io.grpc:grpc-netty-shaded:1.71.0")
 }
 
 dependencyManagement {

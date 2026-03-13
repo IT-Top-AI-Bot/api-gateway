@@ -15,6 +15,10 @@ spring:
               predicates:
                 - Path=/api/v1/*/journal/**, /api/v1/*/users/**
 
+    gateway:
+      grpc:
+        enabled: false
+
     kubernetes:
       discovery:
         enabled: true

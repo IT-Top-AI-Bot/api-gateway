@@ -19,12 +19,13 @@ repositories {
 }
 
 extra["springCloudVersion"] = "2025.1.1"
+val grpcNettyVersion by extra("1.79.0")
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webflux")
     implementation("org.springframework.cloud:spring-cloud-starter-kubernetes-client-all")
-    runtimeOnly("io.grpc:grpc-netty-shaded:1.71.0")
+    runtimeOnly("io.grpc:grpc-netty:$grpcNettyVersion")
 }
 
 dependencyManagement {

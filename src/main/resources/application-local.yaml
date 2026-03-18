@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: journal-service
+              uri: http://localhost:8085
+              predicates:
+                - Path=/**

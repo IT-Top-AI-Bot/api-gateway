@@ -7,15 +7,13 @@ spring:
 
   cloud:
     gateway:
-      grpc:
-        enabled: false
       server:
         webflux:
           routes:
             - id: journal-service
               uri: lb://journal-service-dev
               predicates:
-                - Path=/api/v1/*/journal/**, /api/v1/*/users/**
+                - Path=/**
 
     kubernetes:
       discovery:

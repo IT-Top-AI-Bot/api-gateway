@@ -1,5 +1,6 @@
-package com.aquadev.apigateway;
+package com.aquadev.apigateway.config.observation;
 
+import org.jspecify.annotations.NonNull;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.server.reactive.observation.DefaultServerRequestObservationConvention;
@@ -13,9 +14,15 @@ public class GatewayObservationConfig {
     public ServerRequestObservationConvention serverRequestObservationConvention() {
         return new DefaultServerRequestObservationConvention() {
             @Override
-            public String getContextualName(ServerRequestObservationContext context) {
-                String method = context.getCarrier().getMethod().name();
-                String path = context.getCarrier().getURI().getPath();
+            public String getContextualName(@NonNull ServerRequestObservationContext context) {
+                var request = context.getCarrier();
+
+                if (request == null) {
+                    return "UNKNOWN";
+                }
+
+                String method = request.getMethod().name();
+                String path = request.getURI().getPath();
                 return method + " " + path;
             }
         };

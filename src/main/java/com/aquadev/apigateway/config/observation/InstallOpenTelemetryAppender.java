@@ -1,4 +1,4 @@
-package com.aquadev.apigateway;
+package com.aquadev.apigateway.config.observation;
 
 import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppender;

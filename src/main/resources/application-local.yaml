@@ -4,6 +4,10 @@ spring:
       server:
         webflux:
           routes:
+            - id: executor
+              uri: http://localhost:8082
+              predicates:
+                - Path=/api/v1/subject-prompts/**
             - id: journal-service
               uri: http://localhost:8085
               predicates:

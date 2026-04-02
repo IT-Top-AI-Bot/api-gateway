@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.springframework.boot") version "4.0.3"
+    id("org.springframework.boot") version "4.0.5"
     id("io.spring.dependency-management") version "1.1.7"
 }
 
@@ -19,13 +19,16 @@ repositories {
 }
 
 extra["springCloudVersion"] = "2025.1.1"
-val grpcNettyVersion by extra("1.79.0")
+val opentelemetryVersion by extra("2.21.0-alpha")
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-opentelemetry")
+    implementation("io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0:$opentelemetryVersion")
+    implementation("org.springframework.cloud:spring-cloud-starter-config")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webflux")
     implementation("org.springframework.cloud:spring-cloud-starter-kubernetes-client-all")
-    runtimeOnly("io.grpc:grpc-netty:$grpcNettyVersion")
+
 }
 
 dependencyManagement {

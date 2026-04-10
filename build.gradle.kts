@@ -21,6 +21,7 @@ repositories {
 extra["springCloudVersion"] = "2025.1.1"
 val grpcNettyVersion by extra("1.70.0")
 val opentelemetryVersion by extra("2.21.0-alpha")
+val protobufVersion by extra("4.32.0")
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -30,6 +31,7 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webflux")
     implementation("org.springframework.cloud:spring-cloud-starter-kubernetes-client-all")
     implementation("io.grpc:grpc-netty:$grpcNettyVersion")
+    implementation("com.google.protobuf:protobuf-java:$protobufVersion")
 }
 
 dependencyManagement {
